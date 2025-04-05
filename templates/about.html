@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block title %}About Us - File Tracking System{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">File Tracking System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'about' %}">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <h1 class="display-4 mb-4">About Our File Tracking System</h1>
+        
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <h2 class="h4 mb-3">Our Mission</h2>
+                <p>
+                    Our File Tracking System is designed to streamline the approval process for government engineering departments.
+                    We aim to reduce paperwork, increase transparency, and improve efficiency in the file approval workflow.
+                </p>
+            </div>
+        </div>
+        
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <h2 class="h4 mb-3">How It Works</h2>
+                <p>
+                    Our system implements a three-tier approval process:
+                </p>
+                <ol>
+                    <li>Files are first reviewed by Assistant Engineers</li>
+                    <li>Upon approval, they move to Deputy Engineers</li>
+                    <li>Finally, Executive Engineers provide the final approval</li>
+                </ol>
+                <p>
+                    This hierarchical approach ensures thorough review and maintains the proper chain of command.
+                </p>
+            </div>
+        </div>
+        
+        <div class="card shadow">
+            <div class="card-body">
+                <h2 class="h4 mb-3">Benefits</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul>
+                            <li>Paperless workflow</li>
+                            <li>Real-time tracking of file status</li>
+                            <li>Secure document storage</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul>
+                            <li>Faster approval process</li>
+                            <li>Transparent decision making</li>
+                            <li>Reduced administrative overhead</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

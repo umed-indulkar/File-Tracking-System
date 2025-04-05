@@ -1,0 +1,62 @@
+{% extends 'employee/employee_base.html' %}
+
+{% block title %}Dashboard - File Tracking System{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">Employee Dashboard</h1>
+        <div class="alert alert-info">
+            <h4 class="alert-heading">Welcome, {{ request.user.get_full_name }}!</h4>
+            <p>You are logged in as a {{ request.user.profile.get_designation_display }} in the {{ request.user.profile.department }} department.</p>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <i class="bi bi-file-earmark-arrow-up fs-1 text-primary mb-3"></i>
+                <h5 class="card-title">Upload File</h5>
+                <p class="card-text">Upload a new file for approval.</p>
+                <a href="{% url 'upload_file' %}" class="btn btn-primary">Upload</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <i class="bi bi-inbox fs-1 text-primary mb-3"></i>
+                <h5 class="card-title">View Requests</h5>
+                <p class="card-text">View files waiting for your approval.</p>
+                <a href="{% url 'view_requests' %}" class="btn btn-primary">View</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <i class="bi bi-file-earmark-check fs-1 text-primary mb-3"></i>
+                <h5 class="card-title">View Status</h5>
+                <p class="card-text">Check the status of your uploaded files.</p>
+                <a href="{% url 'view_status' %}" class="btn btn-primary">View</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6 col-lg-3 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body text-center">
+                <i class="bi bi-key fs-1 text-primary mb-3"></i>
+                <h5 class="card-title">Change Password</h5>
+                <p class="card-text">Update your account password.</p>
+                <a href="{% url 'change_password' %}" class="btn btn-primary">Change</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

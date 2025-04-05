@@ -1,0 +1,79 @@
+{% extends 'admin/admin_base.html' %}
+
+{% block title %}Add Employee - File Tracking System{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">Add New Employee</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Employee Details</h5>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label for="id_name" class="form-label">Full Name</label>
+                        <input type="text" name="name" id="id_name" class="form-control" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="id_email" class="form-label">Email</label>
+                        <input type="email" name="email" id="id_email" class="form-control" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="id_password" class="form-label">Password</label>
+                        <input type="password" name="password" id="id_password" class="form-control" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="id_gender" class="form-label">Gender</label>
+                        <select name="gender" id="id_gender" class="form-select" required>
+                            <option value="">Select Gender</option>
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                            <option value="O">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="id_dob" class="form-label">Date of Birth</label>
+                        <input type="date" name="dob" id="id_dob" class="form-control" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="id_designation" class="form-label">Designation</label>
+                        <select name="designation" id="id_designation" class="form-select" required>
+                            <option value="">Select Designation</option>
+                            <option value="assistant">Assistant Engineer</option>
+                            <option value="deputy">Deputy Engineer</option>
+                            <option value="executive">Executive Engineer</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="id_department" class="form-label">Department</label>
+                        <input type="text" name="department" id="id_department" class="form-control" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="id_mobile" class="form-label">Mobile Number</label>
+                        <input type="text" name="mobile" id="id_mobile" class="form-control" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Add Employee</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

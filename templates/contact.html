@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us - File Tracking System{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">File Tracking System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'contact' %}">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h1 class="display-4 mb-4">Contact Us</h1>
+        
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <h2 class="h4 mb-3">Get in Touch</h2>
+                <p>
+                    If you have any questions or need assistance with our File Tracking System, please don't hesitate to contact us.
+                </p>
+                
+                <div class="row mt-4">
+                    <div class="col-md-6 mb-4">
+                        <div class="d-flex align-items-start">
+                            <i class="bi bi-envelope fs-4 me-3 text-primary"></i>
+                            <div>
+                                <h5 class="h6">Email</h5>
+                                <p>support@filetracking.gov</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="d-flex align-items-start">
+                            <i class="bi bi-telephone fs-4 me-3 text-primary"></i>
+                            <div>
+                                <h5 class="h6">Phone</h5>
+                                <p>+1 (123) 456-7890</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="d-flex align-items-start">
+                            <i class="bi bi-geo-alt fs-4 me-3 text-primary"></i>
+                            <div>
+                                <h5 class="h6">Address</h5>
+                                <p>123 Government Plaza<br>City, State 12345</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="d-flex align-items-start">
+                            <i class="bi bi-clock fs-4 me-3 text-primary"></i>
+                            <div>
+                                <h5 class="h6">Office Hours</h5>
+                                <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Send Us a Message</h5>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Your Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="subject" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,38 @@
+{% extends 'admin/admin_base.html' %}
+
+{% block title %}Admin Dashboard - File Tracking System{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">Admin Dashboard</h1>
+        <div class="alert alert-info">
+            <h4 class="alert-heading">Welcome, Admin!</h4>
+            <p>From here you can manage employees and system settings.</p>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-6 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-person-plus me-2"></i>Add Employee</h5>
+                <p class="card-text">Add new employees to the system with their details and roles.</p>
+                <a href="{% url 'add_employee' %}" class="btn btn-primary">Add Employee</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6 mb-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-people me-2"></i>View Employees</h5>
+                <p class="card-text">View and manage all employees registered in the system.</p>
+                <a href="{% url 'view_employees' %}" class="btn btn-primary">View Employees</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

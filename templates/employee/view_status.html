@@ -1,0 +1,76 @@
+{% extends 'employee/employee_base.html' %}
+
+{% block title %}View Status - File Tracking System{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">Your Files Status</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Your Uploaded Files</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>File Title</th>
+                                <th>Description</th>
+                                <th>File</th>
+                                <th>Date Uploaded</th>
+                                <th>Current Status</th>
+                                <th>Current Reviewer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for file in files %}
+                            <tr>
+                                <td>{{ file.title }}</td>
+                                <td>{{ file.description|truncatechars:50 }}</td>
+                                <td>
+                                    <a href="{{ file.file_upload.url }}" target="_blank" class="btn btn-sm btn-outline-primary">
+                                        <i class="bi bi-download"></i> Download
+                                    </a>
+                                </td>
+                                <td>{{ file.date_uploaded|date:"d M Y" }}</td>
+                                <td>
+                                    {% if file.status == 'approved' %}
+                                        <span class="badge bg-success">{{ file.get_status_display }}</span>
+                                    {% elif file.status == 'rejected' %}
+                                        <span class="badge bg-danger">{{ file.get_status_display }}</span>
+                                    {% else %}
+                                        <span class="badge bg-warning text-dark">{{ file.get_status_display }}</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {% if file.current_reviewer %}
+                                        {{ file.current_reviewer.get_full_name }} ({{ file.current_reviewer.profile.get_designation_display }})
+                                    {% elif file.status == 'approved' %}
+                                        <span class="text-success">Approved by all</span>
+                                    {% elif file.status == 'rejected' %}
+                                        <span class="text-danger">Rejected</span>
+                                    {% else %}
+                                        <span class="text-muted">None</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="6" class="text-center">You haven't uploaded any files yet.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

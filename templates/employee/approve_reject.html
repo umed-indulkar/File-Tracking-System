@@ -1,0 +1,83 @@
+{% extends 'employee/employee_base.html' %}
+
+{% block title %}Review File - File Tracking System{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="mb-4">Review File</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 mx-auto">
+        <div class="card shadow mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">File Details</h5>
+            </div>
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Title:</div>
+                    <div class="col-md-9">{{ file.title }}</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Description:</div>
+                    <div class="col-md-9">{{ file.description }}</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Uploaded By:</div>
+                    <div class="col-md-9">{{ file.uploaded_by.get_full_name }} ({{ file.uploaded_by.profile.get_designation_display }})</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Department:</div>
+                    <div class="col-md-9">{{ file.uploaded_by.profile.department }}</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Date Uploaded:</div>
+                    <div class="col-md-9">{{ file.date_uploaded|date:"d M Y H:i" }}</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Current Status:</div>
+                    <div class="col-md-9">
+                        <span class="badge bg-warning text-dark">{{ file.get_status_display }}</span>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">File:</div>
+                    <div class="col-md-9">
+                        <a href="{{ file.file_upload.url }}" target="_blank" class="btn btn-outline-primary">
+                            <i class="bi bi-download"></i> Download File
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Your Decision</h5>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label for="id_comments" class="form-label">Comments (Optional)</label>
+                        <textarea name="comments" id="id_comments" rows="4" class="form-control"></textarea>
+                    </div>
+                    
+                    <div class="d-flex gap-2">
+                        <button type="submit" name="action" value="approve" class="btn btn-success flex-grow-1">
+                            <i class="bi bi-check-circle me-1"></i> Approve
+                        </button>
+                        <button type="submit" name="action" value="reject" class="btn btn-danger flex-grow-1">
+                            <i class="bi bi-x-circle me-1"></i> Reject
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
