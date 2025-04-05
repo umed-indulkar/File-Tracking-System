@@ -3,7 +3,7 @@ services:
     name: file-tracking
     env: python
     build:
-      pythonVersion: 3.13.0
+      pythonVersion: 3.11.11
     buildCommand: ""
     startCommand: gunicorn file_tracking.wsgi:application
     envVars:
