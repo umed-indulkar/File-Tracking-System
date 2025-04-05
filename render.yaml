@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: file-tracking
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn file_tracking.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: file_tracking.settings
+      - key: SECRET_KEY
+        value: your-django-secret-key-here
+      - key: DEBUG
+        value: False
