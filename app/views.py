@@ -30,7 +30,7 @@ def user_login(request):
             if user is not None:
                 login(request, user)
                 if user.is_superuser:
-                    return redirect('/admin/')
+                    return redirect('admin_dashboard')
                 else:
                     return redirect('employee_dashboard')
             else:
